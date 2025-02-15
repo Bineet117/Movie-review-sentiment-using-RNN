@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Review Sentiment Analysis 🎬</title>
+    <style>
+        /* Reset default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        /* Body styling with a medium blue gradient background */
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #bbdefb, #90caf9);
+            padding: 20px;
+        }
+        /* Navigation bar styling */
+        .navbar {
+            background-color: #2196f3; /* Rich blue */
+            color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .navbar h1 {
+            font-size: 26px;
+        }
+        /* Main container styling */
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        /* Header display image styling */
+        .header-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        h2 {
+            margin-top: 20px;
+            color: #333;
+        }
+        textarea {
+            width: 100%;
+            padding: 15px;
+            margin-top: 20px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+        textarea:focus {
+            border-color: #2196f3;
+            outline: none;
+        }
+        input[type="submit"] {
+            background-color: #2196f3;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            margin-top: 20px;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #1976d2;
+        }
+        .sentiment-result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation bar -->
+    <div class="navbar">
+        <h1>Movie Sentiment Analyzer</h1>
+    </div>
+    
+    <!-- Main content container -->
+    <div class="container">
+        <!-- Display image (sourced locally) -->
+        <img src="static/images/movie1.jpeg" alt="Cinema" class="header-image">
+        
+        <h2>Movie Review Sentiment Analysis 🎬</h2>
+        <form method="post" action="/predict">
+            <textarea name="review" rows="4" placeholder="Type your review here..."></textarea><br>
+            <input type="submit" value="Analyze Sentiment 😃">
+        </form>
+        {% if sentiment %}
+            <div class="sentiment-result">
+                Sentiment: <span class="emoji">{{ sentiment }}</span> ⭐
+            </div>
+        {% endif %}
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <!-- Made with  by Yaar. &copy; 2025 -->
+    </footer>
+</body>
+</html>
